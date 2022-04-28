@@ -1,0 +1,337 @@
+Fase 1 - Setup do projeto:
+    
+    Esses passos são necessários para que a pasta na qual estamos
+    trabalhando seja um projeto node.
+
+    ✔ Inicie um projeto node @done(22-04-28 16:00)
+    ✔ Instale o express. @done(22-04-28 16:00)
+
+    Verificações:
+        ✔ Deve existir os arquivos package.json e package-lock.json @done(22-04-28 16:00)
+        ✔ Em package.json, no objeto dependencies, deve constar o express @done(22-04-28 16:00)
+
+
+Fase 2 - Criando e levantando um servidor express:
+    
+    Essa fase tem por objetivo criar e levantar um servidor
+    express para que ele possa receber e responder requisições.
+    
+    ✔ Crie um arquivo app.js @done(22-04-28 16:01)
+    ✔ Em app.js: @done(22-04-28 16:10)
+        ✔ Importe o express @done(22-04-28 16:01)
+        ✔ Crie um servidor e armazene-o em uma constante app @done(22-04-28 16:05)
+        ✔ Para teste posterior, crie uma rota get para '/' que responde "Olá" par ao visitante @done(22-04-28 16:08)
+        ✔ Faça com que o servidor escute na porta 3000. @done(22-04-28 16:08)
+            Quando o servidor estiver escutando, faça com que apareça a mensagem "Servidor escutando
+            na porta 3000" no console
+
+    Verificações:
+        ✔ Ao executar o script app.js você deve ver a mensagem "Servidor escutando na porta 3000" @done(22-04-28 16:10)
+        ✔ Com o servidor rodando, visite http://localhost:3000 . Um "Olá" deve aparecer. @done(22-04-28 16:10)
+
+
+Fase 3 - Configurando o uso do nodemon:
+
+    A realização dessa fase tem por objetivo fazer com que não seja necessário
+    reiniciar o servidor manualmente toda vez que façamos uma alteração na nossa
+    aplicação.
+
+    ✔ Instale a biblioteca nodemon como dependência de desenvolvimento @done(22-04-28 16:14)
+    ✔ No package.json, acrescente um campo ao objeto "scripts". @done(22-04-28 16:14)
+    ✔ A este campo dê o nome de "dev". Atribua a este campo o valor "nodemon app.js" @done(22-04-28 16:14)
+    ✔ Execute no terminal o comando "npm run dev" @done(22-04-28 16:14)
+
+    Verificações:
+        ✔ Quando alterações no arquivo app.js são salvas, o servidor reinicia mostrando a mensagem: @done(22-04-28 16:14)
+            [nodemon] restarting due to changes...
+            [nodemon] starting `node app.js`
+            Servidor escutando na porta 3000
+           
+
+Fase 4 - Exibindo tela de registro (ou inscrição):
+    
+    O objetivo dessa fase é fazer com que, quando um visitante acesse o Endereço /registro ele possa
+    ver um formulário de inscrição para começar a utilizar o sistema de gestão de contatos. Para
+    fazer isso uma primeira vez, alguns passos adicionais precisam ser realizados. Precisaremos..
+    
+    1 - Instalar e configurar o template engine EJS e
+    * Lembre-se: Templates Engines são bibliotecas que nos permite*
+
+    2 - Criar um roteador que conterá várias rotas a serem definidas nos próximos passos.
+    injetar informações dinâmicas em arquivos que contém uma estrutura de HTML.
+    
+    3 - Criar um controller: Um arquivo que conterá várias funções agrupadas num só objeto literal.
+    Uma dessas funções será responsável por "renderizar" a tela de registro para o cliente.
+
+    4 - Criar uma pasta que conterá as views.
+    * Lembre-se: Uma view é um arquivo com estrutura HTML que pode até usar css. *
+
+    Vamos aos passos!
+    
+    Fase 4.1 - Instalação e configuração do EJS:
+        ☐ Instale a biblioteca ejs.
+        ☐ Configure-a como template engine no app.js
+    
+    Fase 4.2 - Criação e configuração do Roteador:
+        ☐ Crie um arquivo UsuariosRouter.js numa pasta "routers"
+        ☐ Em UsuariosRouter.js:
+            ☐ Importe o express
+            ☐ Crie um roteador
+            ☐ No roteador criado, crie uma rota GET para o endereço '/registro'.
+            Essa rota deve encaminhar a req para a função UsuariosController.renderCriarUsuario
+            ainda inexistente.
+            ☐ Exporte o roteador criado
+        ☐ Em app.js:
+            ☐ Importe o roteador exportado em UsuariosRouter.js para uma constante UsuariosRouter
+            ☐ Utilize o novo roteador criado em UsuariosRouter.js
+            ☐ Apague a rota criada na fase 2.
+        
+    
+    Fase 4.3 - Criação e uso do controller:
+        ☐ Numa pasta controllers, crie um arquivo UsuarioControllers.js
+        ☐ Em UsuarioControllers.js:
+            ☐ Exporte um objeto literal (ainda vazio)
+            ☐ Dentro do desse objeto literal crie uma função chamada renderCriarUsuario
+              Essa função deve receber dois parâmetros: req e res. req não será utilizado.
+              Já res, será utilizado para renderizar a view criar usuário
+            ☐ Faça com que a função renderCriarUsuario renderize a view criarUsuario.ejs
+        
+        x Neste momento, alguns erros podem estar acontecendo;
+        x 
+        x 1 - Se você esqueceu de importar o controller para ser utilizado no roteador
+        x você estará vendo o erro: "Cannot read property renderCriarUsuario from undefined"
+        x
+        x 2 - Se a view criarUsuario.ejs ainda não foi criada você deve estar vendo o erro
+        x "Failed to lookup view "index.ejs" in views directory"
+
+    Fase 4.4 - Criação da view criarUsuario:
+        ☐ Numa pasta views, crie um arquivo criarUsuario.ejs
+        ☐ Copie o conteúdo do endereço para o arquivo o conteúdo do endereço:
+             https://wordpad.cc/share/view-criarUsuario-ejs
+
+        Verificações:
+            ☐ Ao visitar http://localhost:3000/registrar você deve ver uma tela com essa aparência
+                https://ibb.co/rt13mdj
+     
+
+
+Fase 5 - Configurando pasta de arquivos publicos e estáticos:
+    
+    Essa fase tem como objetico configurar uma pasta no nosso sistema para armazenar arquivos
+    estáticos como imagens e folhas de estilo (css)
+
+    ☐ Crie uma pasta public
+    ☐ Adicione um middleware que configura a pasta public como a de arquivos estáticos em app.js
+    ☐ Crie uma pasta css dentro da pasta public
+    ☐ Crie um arquivo geral.css dentro da pasta css
+    ☐ Copie o conteúdo do primeiro elemento style do arquivo criarUsuario.ejs para geral.css
+    ☐ Exclua o primeiro elemento style do arquivo criarUsuario.ejs
+    ☐ Link o css do arquivo geral.css ao arquivo criarUsuario.ejs
+    ☐ Crie um arquivo criarUsuario.css detro da pasta css
+    ☐ Copie o conteúdo do segundo elemento style do arquivo criarUsuario.ejs para criarUsuario.css
+    ☐ Exclua o elemento style do arquivo criarUsuario.ejs
+    ☐ Link o css do arquivo criarUsuario.css ao arquivo criarUsuario.ejs
+
+    Verificações:
+        ☐ Ao visitar http://localhost:3000/registrar você deve ver uma tela com essa aparência
+            https://ibb.co/rt13mdj
+
+Fase 6 - Instalando a biblioteca bcrypt:
+
+    Nessa fase instalaremos a biblioteca BCrypt. Ela vai ser muito importante no projeto para
+    criptografar senhas e comparar senhas criptografadas.
+
+    ☐ Instale a biblioteca chamada bcrypt
+
+    Verificações:
+        ☐ No package.json, no objeto dependencies, deve haver um campo com o nome bcrypt
+
+Fase 7 - Registrando um usuário:
+
+    Nessa fase, faremos com que um visitante que preencha o formulário, possa ser registrado
+    corretamente no nosso sistema. Utilizaremos um arquivo usuarios.json dentro da pasta database
+    para armazenar os usuários.
+
+    Fase 7.1 - Setup:
+        ☐ Crie uma pasta database na raíz do seu projeto
+        ☐ Crie um arquivo usuarios.json na pasta database
+        ☐ Insira no arquivo usuarios.json a representação de um array vazio em JSON.
+        ☐ Use um middleware global do express no app.js para tratar formulários post com enctype x-www-form-urlencoded.
+
+    Fase 7.2 - Configurando view, rota e controller:
+        ☐ Altere o formulário de criarUsuario.ejs para que ele seja enviado via post para /usuarios
+        ☐ Crie uma rota post para /usuarios no roteador de UsuariosRouter.js
+        ☐ Faça com que a requisição post para '/usuarios'seja direcionada para UsuariosController.criarUsuario
+        ☐ Crie a função criarUsuario dentro do objeto literal de UsuariosController
+    
+    Fase 7.3 - Programando o controller:
+
+        ☐ A função UsuariosController.criarUsuario deve:
+    
+            ☐ Importar os usuarios do arquivo database/usuarios.json
+            ☐ Salvar numa variável idNovo o  id do novo usuário com base na seguinte regra:
+                Se o array de usuarios estiver vazio, o id do novo usuário será 1
+                caso contrário, o id do novo usuário será o sucessor do id do último usuário
+                do array. Sucessor? https://www.youtube.com/watch?v=CKHLAQj7vJo
+            ☐ Capturar o nome, o email e a senha que o visitante digitou nos campos do formuário
+                Guarde o que foi digitado nos campos em variáveis de nomes iguais ao desses campos
+            ☐ Criptografe a senha digitada pelo visitante e guarde-ana variável senhaCriptografada
+                Criptografar?
+                Visite https://www.npmjs.com/package/bcrypt e veja a função hashSync
+                
+                hashSync(data, salt)
+                    data - [REQUIRED] - the data to be encrypted.
+                    salt - [REQUIRED] - the salt to be used to hash the password.
+                                        if specified as a number then a salt will be generated with
+                                        the specified number of rounds and used (see example under
+                                        Usage).
+            
+            ☐ Crie um objeto literal numa variável. Dê a essa variável o nome de usuario.
+            ☐ Esse objeto literal deve conter o formato a seguir, dando a cada campo suas respectivas informações:
+            {
+                id: [id do novo usuário],
+                nome: [nome do novo usuário],
+                email: [email do novo usuário]
+                senha: [senha criptografada], 
+            }
+            ☐ Adicione o conteúdo da variável usuário ao final do array usuários
+            ☐ Salve o array de usuários no arquivo database/usuarios.json
+            Lembre da biblioteca para manipulação de arquivos 'fs'
+            Possivelmente você deverá precisar da biblioteca path para ajudar com o caminho do
+            arquivo usuarios.json
+            ☐ Altere o campo dev da propriedade scripts do package.json
+            de: "dev": "nodemon app.js"
+            para: "dev": "nodemon app.js --ignore *.json"
+            
+            ☐ Responda para o cliente o objeto usuario
+    
+    Verificações:
+        ☐ Preencha o formulário e envie. Um novo usuáiro deve aparecer no final de usuarios.json
+        ☐ Na tela do navegador você deve ver as informações do usuário recém criado. Algo assim:
+            {
+                "id":12,
+                "email":"teste2@teste.com",
+                "nome":"Teste 2",
+                "senha":"$2b$10$MRw27DB80TZRYqOaIUzm7uUiyauR6Qlo7M5eGh33v/f3bHB4xfalK"
+            }
+
+Fase 8 - Realizando login:
+    
+    O objetivo dessa fase é mostrar uma tela para que um usuário possa fazer o login no nosso
+    sistema. Em outras palavras, ele deve digitar o e-email e a senha dele em um formuário, enviar
+    esse formulário para o servidor e, caso os dados estejam corretos, nosso sistema deve, por
+    enquanto, mostrar uma mensagem de sucesso. Caso os dados não estejam corretos, o nosso sistema
+    deve, por enquanto, retornar uma mensagem de fracasso. Vamos aos passos!
+    
+    Fase 8.1 - Exibindo a tela de login:
+        
+        ☐ Crie uma rota get para '/login' que direciona a req para UsuariosController.renderLogin
+        ☐ Crie um controller UsuariosController.renderLogin que renderiza a view login.ejs
+        ☐ Crie a view login.ejs com o conteúdo do endereço https://wordpad.cc/share/view-login-ejs
+
+        Verificação:
+            ☐ Ao acessar o endereço https://localhost:3000/login você deve ver algo assim:
+            https://ibb.co/vcH37j5
+    
+    Fase 8.2 - Verificando dados de login (email e senha):
+
+        ☐ Faça com que o formuário presente em login.ejs seja enviado via post para '/login'
+        ☐ Crie uma rota post para '/login' direcionando a req para UsuariosController.login
+        ☐ Crie o controller UsuariosController.login. Essa função deve:
+            ☐ Capturar email e senha digitados pelo visitante em variáveis de mesmo nome.
+            ☐ Carregar o array de usuários de usuarios.json e guardá-lo em uma contante usuario.
+            ☐ Buscar um usuário com o email digitado no array usuarios.
+                Caso não haja usuário com o e-mail, renderizar a view login passando para ela o
+                seguinte objeto: {erro:1, email, senha}.
+            ☐ Validar a senha do usuário usando a função bcrypt.compareSync
+                Visite: https://www.npmjs.com/package/bcrypt e veja a documentação da função
+                compareSync. Caso a senha não seja válida, renderizar a view login passando para ela
+                o seguinte objeto: {erro:1, email, senha}.
+            ☐ Se email e senha estiverem corretos, responder para o visitante a mensagem "Login Ok"
+        
+        Verificações:
+            ☐ Preencha com dados de login válidos em http://localhost:3000/login e click em entrar.
+            Esperasse que você veja a mensagem "Login Ok"
+            ☐ Preencha com dados inválidos a tela de login.
+            Esperasse que você veja a tela de login novamente. Ainda sem mensagens de erro.
+    
+    Fase 8.3 - Exibindo erro de login errado:
+        ☐ Altere a função UsuariosController.renderLogin para que ele passe para a view o objeto:
+        {erro:0, email:"", senha: ""}
+        
+        ☐ Altere a view login para que, caso a variavel erro seja igual a 1, exibir a div abaixo
+        <div class="erro">Falha no login</div> <!-- Imediatamente antes do elemento do form -->
+        
+        ☐ Acrescente a regra css a seguir ao bloco de css específico para essa página.
+        .erro {
+            width: 700px;
+            background-color: rgba(255, 0, 0, 0.4);
+            color: #FF0;
+            padding: 10px;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        ☐ Faça com que os campos de login e senha sejam preenchidos com email e senha digitados anteriormente pelo usuário
+    
+        Verificações:
+            ☐ Digite o endereço http://localhost.3000/login e pressione ENTER
+            Dependendo da sua última ação que você realizou, pressionar reload ou F5 não vai
+            atualizar corretamente.
+
+            ☐ Entre com um login um login ou senha errados. Você deve ver uma mensagem assim:
+            https://ibb.co/bRT7Hk1
+
+
+
+    
+
+
+
+Fase 9 - Criando rota->controller->view que futuramente irá exibir os contatos do usuário:
+
+    Agora, vamos criar uma tela para onde os nossos usuários serão direcionados assim que fizerem
+    o login com sucesso ou assim que se cadastrarem. Por enquanto, será uma página estática.
+
+    ☐ Crie um arquivo ContatosRouter.js na pasta routers
+    ☐ Em ContatosRouter.js você deve criar um roteador seguindo os seguintes passos
+        ☐ Importe o express
+        ☐ Crie uma variável router e guarde nela o resultado da função express.Router()
+        ☐ Crie uma rota get para /contatos que direcione a requisição para ContatosController.listarContatos
+        ☐ Exporte a variável router
+    ☐ Em app.js você deve indicar que vai usar o roteador criado em ContatosRouter.js para isso:
+        ☐ Importe o roteador exportado em ContatosRouter.js para uma constante ContatosRouter
+        ☐ Configure o uso do roteador armazenado ContatosRouter
+    ☐ Crie um arquivo ContatosController.js na pasta controllers
+    ☐ Em ContatosController.js:
+        ☐ Crie e exporte um objeto literal vazio
+        ☐ Crie dentro desse objeto literal uma função listarContatos
+        ☐ A função criada deve receber req e res como parâmetro
+        ☐ A função criada deve responder "Aqui virá a lista de contatos" para o visitante.
+
+Fase 10 - Criando a session para usuário recém cadastrado e para usuário recém logado:
+
+    Nessa fase vamos criar uma session para o usuário que fez o login ou para aquele que acabou de
+    se cadastrar. Usar uma session é uma das formas que nós temos de proteger algumas rotas para
+    que somente usuários autenticados possam acessar algumas partes do nosso sistema. Uma session
+    pode ser entendida como informações guardadas no servidor que ficam associadas à
+    um código. Esse código, que dá acesso à essas informações, é enviado para o browser do cliente
+    em um cookie. Toda vez que o browser do cliente fizer uma requisição, esse cookie irá dentro
+    da requisição, mais precisamente no seu cabeçalho. Dessa forma, o servidor sempre poderá saber
+    se a requisição que chega é ou não de um usuário logado.
+
+Fase 11 - Redirecionando usuário que faz login para tela que vai exibir os contatos:
+
+Fase 12 - Redirecionando usuário que se registra para a tela que vai exibir os contatos:
+
+Fase 13 - Criando middleware que verifica se o usuário está logado e protegendo rotas internas:
+
+Fase 14 - Fazendo com que a página de contatos exiba os contatos do usuário logado:
+
+Fase 15 - Criando rota->controller->view para tela com formulário que adiciona novo contato:
+
+Fase 16 - Adicionando um novo contato:
+
+Fase 17 - Removendo um contato:
+
+Fase 18 - Alterando dados de um contato:
