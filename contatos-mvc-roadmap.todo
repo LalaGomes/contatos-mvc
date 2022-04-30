@@ -133,7 +133,7 @@ Fase 5 - Configurando pasta de arquivos publicos e estáticos:
     ✔ Link o css do arquivo criarUsuario.css ao arquivo criarUsuario.ejs @done(22-04-30 20:33)
 
     Verificações:
-        ☐ Ao visitar http://localhost:3000/registrar você deve ver uma tela com essa aparência
+        ✔ Ao visitar http://localhost:3000/registrar você deve ver uma tela com essa aparência @done(22-04-30 20:41)
             https://ibb.co/rt13mdj
 
 Fase 6 - Instalando a biblioteca bcrypt:
@@ -141,10 +141,10 @@ Fase 6 - Instalando a biblioteca bcrypt:
     Nessa fase instalaremos a biblioteca BCrypt. Ela vai ser muito importante no projeto para
     criptografar senhas e comparar senhas criptografadas.
 
-    ☐ Instale a biblioteca chamada bcrypt
+    ✔ Instale a biblioteca chamada bcrypt @done(22-04-30 20:38)
 
     Verificações:
-        ☐ No package.json, no objeto dependencies, deve haver um campo com o nome bcrypt
+        ✔ No package.json, no objeto dependencies, deve haver um campo com o nome bcrypt @done(22-04-30 20:38)
 
 Fase 7 - Registrando um usuário:
 
