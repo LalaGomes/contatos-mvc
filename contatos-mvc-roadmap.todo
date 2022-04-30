@@ -69,32 +69,32 @@ Fase 4 - Exibindo tela de registro (ou inscrição):
     Vamos aos passos!
     
     Fase 4.1 - Instalação e configuração do EJS:
-        ☐ Instale a biblioteca ejs.
-        ☐ Configure-a como template engine no app.js
+        ✔ Instale a biblioteca ejs. @done(22-04-28 16:21)
+        ✔ Configure-a como template engine no app.js @done(22-04-28 16:21)
     
     Fase 4.2 - Criação e configuração do Roteador:
-        ☐ Crie um arquivo UsuariosRouter.js numa pasta "routers"
-        ☐ Em UsuariosRouter.js:
-            ☐ Importe o express
-            ☐ Crie um roteador
-            ☐ No roteador criado, crie uma rota GET para o endereço '/registro'.
+        ✔ Crie um arquivo UsuariosRouter.js numa pasta "routers" @done(22-04-28 16:22)
+        ✔ Em UsuariosRouter.js: @done(22-04-28 16:25)
+            ✔ Importe o express @done(22-04-28 16:23)
+            ✔ Crie um roteador @done(22-04-28 16:23)
+            ✔ No roteador criado, crie uma rota GET para o endereço '/registro'. @done(22-04-28 16:25)
             Essa rota deve encaminhar a req para a função UsuariosController.renderCriarUsuario
             ainda inexistente.
-            ☐ Exporte o roteador criado
-        ☐ Em app.js:
-            ☐ Importe o roteador exportado em UsuariosRouter.js para uma constante UsuariosRouter
-            ☐ Utilize o novo roteador criado em UsuariosRouter.js
-            ☐ Apague a rota criada na fase 2.
+            ✔ Exporte o roteador criado @done(22-04-28 16:26)
+        ✔ Em app.js: @done(22-04-28 16:30)
+            ✔ Importe o roteador exportado em UsuariosRouter.js para uma constante UsuariosRouter @done(22-04-28 16:29)
+            ✔ Utilize o novo roteador criado em UsuariosRouter.js @done(22-04-28 16:30)
+            ✔ Apague a rota criada na fase 2. @done(22-04-28 16:30)
         
     
     Fase 4.3 - Criação e uso do controller:
-        ☐ Numa pasta controllers, crie um arquivo UsuarioControllers.js
+        ✔ Numa pasta controllers, crie um arquivo UsuarioControllers.js @done(22-04-28 16:31)
         ☐ Em UsuarioControllers.js:
-            ☐ Exporte um objeto literal (ainda vazio)
-            ☐ Dentro do desse objeto literal crie uma função chamada renderCriarUsuario
+            ✔ Exporte um objeto literal (ainda vazio) @done(22-04-28 16:36)
+            ✔ Dentro do desse objeto literal crie uma função chamada renderCriarUsuario @done(22-04-28 16:38)
               Essa função deve receber dois parâmetros: req e res. req não será utilizado.
               Já res, será utilizado para renderizar a view criar usuário
-            ☐ Faça com que a função renderCriarUsuario renderize a view criarUsuario.ejs
+            ✔ Faça com que a função renderCriarUsuario renderize a view criarUsuario.ejs @done(22-04-28 16:38)
         
         x Neste momento, alguns erros podem estar acontecendo;
         x 
@@ -105,12 +105,12 @@ Fase 4 - Exibindo tela de registro (ou inscrição):
         x "Failed to lookup view "index.ejs" in views directory"
 
     Fase 4.4 - Criação da view criarUsuario:
-        ☐ Numa pasta views, crie um arquivo criarUsuario.ejs
-        ☐ Copie o conteúdo do endereço para o arquivo o conteúdo do endereço:
+        ✔ Numa pasta views, crie um arquivo criarUsuario.ejs @done(22-04-28 16:45)
+        ✔ Copie o conteúdo do endereço para o arquivo o conteúdo do endereço: @done(22-04-28 16:45)
              https://wordpad.cc/share/view-criarUsuario-ejs
 
         Verificações:
-            ☐ Ao visitar http://localhost:3000/registrar você deve ver uma tela com essa aparência
+            ✔ Ao visitar http://localhost:3000/registrar você deve ver uma tela com essa aparência @done(22-04-28 16:48)
                 https://ibb.co/rt13mdj
      
 
@@ -120,17 +120,17 @@ Fase 5 - Configurando pasta de arquivos publicos e estáticos:
     Essa fase tem como objetico configurar uma pasta no nosso sistema para armazenar arquivos
     estáticos como imagens e folhas de estilo (css)
 
-    ☐ Crie uma pasta public
-    ☐ Adicione um middleware que configura a pasta public como a de arquivos estáticos em app.js
-    ☐ Crie uma pasta css dentro da pasta public
-    ☐ Crie um arquivo geral.css dentro da pasta css
-    ☐ Copie o conteúdo do primeiro elemento style do arquivo criarUsuario.ejs para geral.css
-    ☐ Exclua o primeiro elemento style do arquivo criarUsuario.ejs
-    ☐ Link o css do arquivo geral.css ao arquivo criarUsuario.ejs
-    ☐ Crie um arquivo criarUsuario.css detro da pasta css
-    ☐ Copie o conteúdo do segundo elemento style do arquivo criarUsuario.ejs para criarUsuario.css
-    ☐ Exclua o elemento style do arquivo criarUsuario.ejs
-    ☐ Link o css do arquivo criarUsuario.css ao arquivo criarUsuario.ejs
+    ✔ Crie uma pasta public @done(22-04-28 16:52)
+    ✔ Adicione um middleware que configura a pasta public como a de arquivos estáticos em app.js @done(22-04-30 20:26)
+    ✔ Crie uma pasta css dentro da pasta public @done(22-04-30 20:28)
+    ✔ Copie o conteúdo do primeiro elemento style do arquivo criarUsuario.ejs para geral.css @done(22-04-30 20:28)
+    ✔ Crie um arquivo geral.css dentro da pasta css @done(22-04-30 20:28)
+    ✔ Exclua o primeiro elemento style do arquivo criarUsuario.ejs @done(22-04-30 20:28)
+    ✔ Link o css do arquivo geral.css ao arquivo criarUsuario.ejs @done(22-04-30 20:31)
+    ✔ Crie um arquivo criarUsuario.css detro da pasta css @done(22-04-30 20:32)
+    ✔ Copie o conteúdo do segundo elemento style do arquivo criarUsuario.ejs para criarUsuario.css @done(22-04-30 20:33)
+    ✔ Exclua o elemento style do arquivo criarUsuario.ejs @done(22-04-30 20:33)
+    ✔ Link o css do arquivo criarUsuario.css ao arquivo criarUsuario.ejs @done(22-04-30 20:33)
 
     Verificações:
         ☐ Ao visitar http://localhost:3000/registrar você deve ver uma tela com essa aparência

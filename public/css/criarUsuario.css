@@ -1,0 +1,23 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+form {
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 40px;
+    box-shadow: 0 0 2px inset rgba(256, 256, 256, 0.3);
+    width: 400px;
+}
+
+form input {
+    display: block;
+    width: 100%;
+}
+
+form .controles {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+    margin-bottom: 0;
+}
